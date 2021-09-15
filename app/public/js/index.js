@@ -38,5 +38,5 @@ const Offer = {
   } //end created
 } // end Offer config
 
-Vue.createApp(Offer).mount('#offerApp');
+Vue.createApp(Offer).mount('.offerApp');
 console.log("Z");

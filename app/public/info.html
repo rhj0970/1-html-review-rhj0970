@@ -21,37 +21,18 @@
                     <div class="profileBox">
                         <div class="widget-user-header bg-aqua-active">
                             
-                            <div  v-for="result in results" id="offerApp" class="col col-8">     
+                            <div class="offerApp" class="col col-8">  
                                 <br>
-                                <h2>{{result.name.first}} {{result.name.last}}</h2>   
+                                <h2>{{ person.name.first }} {{ person.name.last }}</h2>
+                                <p><a v-bind:href="'mailto:'+person.email">{{ person.email }}</a></p>
+                                
                                 </div>
+                                <br>
+                                
+                                
                         </div>
                         <div class="profileImage"> <img class="captainImage" src="img/captain.jpg" alt="captainImage" width="250" height="250"> </div>
-                        <div class="box-footer">
-                            <div class="row">
-                                <div class="col-sm-4 border-right">
-                                    <div class="description-block">
-                                        <h5 class="description-header">United States</h5> 
-                                    </div>
-                                </div>
-                                <div class="col-sm-4 border-right">
-                                    <div class="description-block">
-                                        <h5 class="description-header">July 4, 1918</h5> 
-                                    </div>
-                                </div>
-                                <div class="col-sm-4">
-                                    <div class="description-block">
-                                        <h5 class="description-header">99 years old</h5>
-                                    </div>
-                                </div>
-                                <div class="col-sm-4 border-right">
-                                    <div class="description-block">
-                                        <a href="mailto:capAmerica@gmail.com">capAmerica@gmail.com</a> 
-                                       
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
+                        
                     </div>
                 </div>
             </div>

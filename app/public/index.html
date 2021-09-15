@@ -20,15 +20,18 @@
 
 
 
-    <div id="offerApp" class="col col-8">        <!--Vue js rendering-->
-      <h1> two of two columns(In class)</h1>       
+    <div id="offerApp" class="col col-8">
+      <h1>Two of two columns</h1>
+      <p>{{ person.name.first }} {{ person.name.last }}</p>
+      <p><a v-bind:href="'mailto:'+person.email">{{ person.email }}</a></p>
+      <p>{{ person }}</p>
  
-      <ul v-for="offer in offers">     <!--for loop-->
-        <li>{{ offer.name }}-{{offer.salary}}</li>
-      </ul>
+
+
     </div>
 
 
+      
       <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" 
       crossorigin="anonymous"></script>
       <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ho+j7jyWK8fNQe+A12Hb8AhRq26LrZ/JpcUGGOn+Y7RsweNrtN/tE3MoK7ZeZDyx" 

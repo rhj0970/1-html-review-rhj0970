@@ -1,27 +1,42 @@
-const Offer = {           /* const = This configuration object is not going to change */ 
-    data() {   
-      return {   
-        "offers": [ {
-          "id":1,
-          "name": "John",
-          "salary":70000,
-          "bonus": 1000,
-          "company": "EY",
-          "offerDate": "2021-09-08"
-
-      },
-      {
-          "id":2,
-          "name": "Kevin",
-          "salary":120000,
-          "bonus": 5000,
-          "company": "Deloitte",
-          "offerDate": "2021-09-10"
-
-      } ]
+const Offer = {
+  data() {
+    return {
+      "person": {},
+      "offers": [
+              {
+                  "id": 1,
+                  "name": "Janet Doe",
+                  "salary": 120000,
+                  "bonus": 9000,
+                  "company":"EY",
+                  "offerDate": "2021-09-08"
+              },
+              {
+                  "id": 2,
+                  "name": "Jordan Doe",
+                  "salary": 80000,
+                  "bonus": 2000,
+                  "company":"IU",
+                  "offerDate": "2021-08-09"
+              }
+          ]
       }
-    }
-  }
-  
-  Vue.createApp(Offer).mount('#offerApp')     /* Mount command */ 
+  },
+  created() {
+      console.log("A");
+      fetch('https://randomuser.me/api/')
+      .then( response => response.json() )
+      .then( (responseJson) => {
+          console.log(responseJson);
+          console.log("C");
+          this.person = responseJson.results[0];
+      })
+      .catch( (err) => {
+          console.error(err);
+      })
+      console.log("B");
+  } //end created
+} // end Offer config
 
+Vue.createApp(Offer).mount('#offerApp');
+console.log("Z");

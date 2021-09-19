@@ -23,15 +23,14 @@
                             
                             <div class="offerApp" class="col col-8">  
                                 <br>
-                                <h2>{{ person.name.first }} {{ person.name.last }}</h2>
+                                <h2>Name: {{ person.name.first }} {{ person.name.last }}</h2>
                                 <p><a v-bind:href="'mailto:'+person.email">{{ person.email }}</a></p>
-                                
-                                </div>
-                                <br>
-                                
-                                
+                                <p>Country: {{ person.location.country }}</p>
+                                <p>DOB: {{ person.dob.date }}</p>
+                                <p>Age: {{ person.registered.age }}</p>
+                                <img v-bind:src="person.picture.large" class="borderimg">
+                                <button onClick="window.location.reload();">Click to try to see different person info!</button>
                         </div>
-                        <div class="profileImage"> <img class="captainImage" src="img/captain.jpg" alt="captainImage" width="250" height="250"> </div>
                         
                     </div>
                 </div>

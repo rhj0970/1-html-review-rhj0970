@@ -28,7 +28,7 @@
                                 <p>Country: {{ person.location.country }}</p>
                                 <p>DOB: {{ person.dob.date }}</p>
                                 <p>Age: {{ person.registered.age }}</p>
-                                <img v-bind:src="person.picture.large" class="borderimg">
+                                <img v-bind:src="person.picture.large">
                                 <button onClick="window.location.reload();">Click to try to see different person info!</button>
                         </div>
                         

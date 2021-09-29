@@ -11,4 +11,5 @@ CREATE TABLE students (
 INSERT INTO students (id, username, name) VALUES 
 (1, 'tomgreg', 'Tom Gregory'),
 (2, 'beth1', 'Beth Barnhart'),
-(3, 'bipin', 'Prof. Prabhakar');
+(3, 'bipin', 'Prof. Prabhakar'),
+(4, 'hyryu', 'Jason Ryu');

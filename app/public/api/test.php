@@ -1,6 +1,7 @@
 <?php
 
 $num = 2;
+
 $foo = $num ." be";
 $bar = "or not " .$num. " be";
 
@@ -9,33 +10,16 @@ echo $foo . ' ' . $bar . "\n";
 echo $num * $num * $num;
 
 $arr = [
-    "first" => "Jason",
-    "second" => "Tom",
+    "first" => "Tom",
+    "second" => "Bipin",
     "best" => "DS"
 ];
 
 $arr2 = [1,1,2,3,5,8];
 
 
-
-
-function printList($someArr) {
-    echo "<ul>\n";
-    foreach($someArr as $key => $val) {
-        echo "<li>".$key. " is " .$val. "<li>\n";
-    }
-    echo "<ul>\n";
-}
-
-printList($arr);
-printList($arr2);
-
-
 if (true) {
     echo "\nTRUE\n";
-}
-else{
-    echo "FALSE \n";
 }
 
 while (true) {
@@ -45,7 +29,15 @@ while (true) {
 
 # This is also a comment
 
+/* This is a 
+multi-line 
+comment */
 
+// echo "<ul>";
+// foreach($arr as $key=>$val) {
+//     echo "<li>".$key ." is ".$val."</li>";
+// }
+// echo "</ul>";
 
 function printAndEncode( $val ) {
     echo json_encode(
@@ -53,7 +45,6 @@ function printAndEncode( $val ) {
         JSON_PRETTY_PRINT|JSON_THROW_ON_ERROR
     );
 }
-printAndEncode($arr);
 
 // ====
 // Naming conventions

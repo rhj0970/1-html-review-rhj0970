@@ -1,48 +1,87 @@
-const Offer = {
-  data() {
-    return {
-      "person": {},
-      "offers": [
-              {
-                  "id": 1,
-                  "name": "Janet Doe",
-                  "salary": 120000,
-                  "bonus": 9000,
-                  "company":"EY",
-                  "offerDate": "2021-09-08"
-              },
-              {
-                  "id": 2,
-                  "name": "Jordan Doe",
-                  "salary": 80000,
-                  "bonus": 2000,
-                  "company":"IU",
-                  "offerDate": "2021-08-09"
-              }
-          ]
+const SomeApp = {
+    data() {
+      return {
+        students: [],
+        selectedStudent: null,
+        offers: [],
+        books: []
       }
-  },
-  methods: {
-    fetchUserData() {
-        console.log("A");
-        fetch('https://randomuser.me/api/')
-        .then( response => response.json() )
-        .then( (responseJson) => {
-            console.log(responseJson);
-            console.log("C");
-            this.person = responseJson.results[0];
-        })
-        .catch( (err) => {
-            console.error(err);
-        })
-        console.log("B");
+    },
+    computed: {},
+    methods: {
+        prettyData(d) {
+            return dayjs(d)
+            .format('D MMM YYYY')
+        },
+        prettyDollar(n) {
+            const d = new Intl.NumberFormat("en-US").format(n);
+            return "$ " + d;
+        },
+        selectStudent(s) {
+            if (s == this.selectedStudent) {
+                return;
+            }
+            this.selectedStudent = s;
+            this.offers = [];
+            this.fetchOfferData(this.selectedStudent);
+        },
+
+        
+        selectBooks(s) {
+            if (s == this.selectBooks) {
+                return;
+            }
+            this.selectBooks = s;
+            this.books = [];
+            this.fetchBooksData(this.selectBooks);
+        },
+        fetchBooksData() {
+            fetch('/api/books/')
+            .then( response => response.json() )
+            .then( (responseJson) => {
+                console.log(responseJson);
+                this.books = responseJson;
+            })
+            .catch( (err) => {
+                console.error(err);
+            })
+        },
+
+
+
+        fetchStudentData() {
+            fetch('/api/student/')
+            .then( response => response.json() )
+            .then( (responseJson) => {
+                console.log(responseJson);
+                this.students = responseJson;
+            })
+            .catch( (err) => {
+                console.error(err);
+            })
+        },
+
+        fetchOfferData(s) {
+            console.log("Fetching offer data for ", s);
+            fetch('/api/offer/?student=' + s.id)
+            .then( response => response.json() )
+            .then( (responseJson) => {
+                console.log(responseJson);
+                this.offers = responseJson;
+            })
+            .catch( (err) => {
+                console.error(err);
+            })
+            .catch( (error) => {
+                console.error(error);
+            });
+        }
+    },
+    created() {
+        this.fetchStudentData();
+        this.fetchBooksData();
     }
-},
-created() {
-    this.fetchUserData();
-} //end created
-}
-
-Vue.createApp(Offer).mount('.offerApp');
-console.log("Z");
-
+  
+  }
+  
+  Vue.createApp(SomeApp).mount('#offerApp');

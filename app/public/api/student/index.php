@@ -14,7 +14,7 @@ echo $db;
 exit;
 
 // Step 2: Create & run the query
-$sql = 'SELECT * FROM Students';
+$sql = 'SELECT * FROM student';
 $vars = [];
 
 // if (isset($_GET['guid'])) {

@@ -34,7 +34,27 @@ INSERT INTO offer(id, studentId, companyName, salary, bonus, offerDate) VALUES
   (4, 3, 'Amazon', 122000, 11000, '2021-10-15')
 ;
 
--- COMMIT;
 
--- CREATE USER 'msisreader'@'%' IDENTIFIED BY 'msisreadonly';
--- GRANT SELECT ON * . * TO 'msisreader'@'%';
+
+--------------------------------------------------------------------------------------------------------------------
+--homework
+
+
+DROP TABLE IF EXISTS student;
+CREATE TABLE books (
+	title text, author text, year_Published INT, publisher text, page_count INT, msrp text
+);
+
+INSERT INTO offer(title, author, year_Published, publisher, page_count, msrp) VALUES
+  ('Alice in Wonderland', 'Lewis Carroll', 1865, 'Independently published', 101, '$5.97'),
+  ('Strength Finder', 'Tom Rath', 2007, 'Gallup Press', 174, '$21.56'),
+  ('Make Your Bed', 'William McRaven', 2017, 'Grand Central Publishing', 130, '$11.94'),
+  ('The Moonlight Child', 'Karen McQuestionn', 2020, 'NIGHTSKY PRESS', 330, '$12.99'),
+  ('It Ends with Us', 'Colleen Hoover', 2016, 'Atria', 384, '$10.80'),
+  ('Think Again: The Power of Knowing What You Dont Know', 'Adam Grant', 2021, 'Viking', 320, '$16.75'),
+  ('Dare to Lead: Brave Work. Tough Conversations. Whole Hearts', 'Brené Brown', 2018, 'Random House', 320, '$10.36'),
+  ('The Premonition: A Pandemic Story', 'Michael Lewis', 2021, 'W. W. Norton & Company', 330, '$13.65')
+;
+
+
+

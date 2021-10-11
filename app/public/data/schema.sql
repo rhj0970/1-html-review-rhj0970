@@ -17,7 +17,7 @@ INSERT INTO student (id, username, name) VALUES
 
 DROP TABLE IF EXISTS offer;
 CREATE TABLE offer (
-	id int PRIMARY KEY AUTO_INCREMENT,
+
     studentId int NOT NULL REFERENCES student(id) 
         ON DELETE CASCADE ON UPDATE CASCADE,
 	companyName VARCHAR(24) NOT NULL DEFAULT '',
@@ -27,25 +27,21 @@ CREATE TABLE offer (
 );
 
 -- Student 1 has no offers, Student 2 has 3 offers, Student 3 has one offer
-INSERT INTO offer(id, studentId, companyName, salary, bonus, offerDate) VALUES
-  (1, 2, 'KPMG', 95000, 7000, '2021-09-30'),
-  (2, 2, 'Deloitte Digital', 94000, 12000, '2021-10-03'),
-  (3, 2, 'IU, ISGP', 54000, 0, '2021-10-05'),
-  (4, 3, 'Amazon', 122000, 11000, '2021-10-15')
+INSERT INTO offer(studentId, companyName, salary, bonus, offerDate) VALUES
+  (2, 'KPMG', 95000, 7000, '2021-09-30'),
+  (2, 'Deloitte Digital', 94000, 12000, '2021-10-03'),
+  (2, 'IU, ISGP', 54000, 0, '2021-10-05'),
+  (3, 'Amazon', 122000, 11000, '2021-10-15')
 ;
 
 
 
---------------------------------------------------------------------------------------------------------------------
---homework
-
-
-DROP TABLE IF EXISTS student;
+DROP TABLE IF EXISTS books;
 CREATE TABLE books (
 	title text, author text, year_Published INT, publisher text, page_count INT, msrp text
 );
 
-INSERT INTO offer(title, author, year_Published, publisher, page_count, msrp) VALUES
+INSERT INTO books(title, author, year_Published, publisher, page_count, msrp) VALUES
   ('Alice in Wonderland', 'Lewis Carroll', 1865, 'Independently published', 101, '$5.97'),
   ('Strength Finder', 'Tom Rath', 2007, 'Gallup Press', 174, '$21.56'),
   ('Make Your Bed', 'William McRaven', 2017, 'Grand Central Publishing', 130, '$11.94'),

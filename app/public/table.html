@@ -24,8 +24,7 @@
 
 
   <div id="offerApp" class="container">
-    
-  <table id="taskTable" class="table">
+    <table id="taskTable" class="table">
     <thead>
       <tr>
         <th scope="col">Title</th>
@@ -46,25 +45,43 @@
         <td>{{ book.msrp }}</td>
     </tr>
     </tbody>
-  </table>
+    </table>
+  
+
+    <br>
+    <br>
+    <br>
+
+    <form v-on:submit.prevent="postBookOffer">
+      <div class="mb-3">
+        <label for="title" class="form-label">title</label>
+        <input type="text" v-model="postBookOffer.title"
+        class="form-control" id="title">
+      </div>
+      <div class="mb-3">
+        <label for="author" class="form-label">author</label>
+        <input type="text" v-model="postBookOffer.author" class="form-control" id="author">
+      </div>
+      <div class="mb-3">
+        <label for="year_Published" class="form-label">year_Published</label>
+        <input type="number" v-model="postBookOffer.year_Published" class="form-control" id="year_Published">
+      </div>
+      <div class="mb-3">
+        <label for="publisher" class="form-label">publisher</label>
+        <input type="text" v-model="postBookOffer.publisher" class="form-control" id="publisher">
+      </div>
+      <div class="mb-3">
+        <label for="page_count" class="form-label">page_count</label>
+        <input type="number" v-model="postBookOffer.page_count" class="form-control" id="page_count">
+      </div>
+      <div class="mb-3">
+        <label for="msrp" class="form-label">msrp</label>
+        <input type="text" v-model="postBookOffer.msrp" class="form-control" id="msrp">
+      </div>
+
+      <button type="submit" class="btn btn-primary">Submit</button>
+    </form>
   </div>
-
-  <br>
-  <br>
-  <br>
-
-  <form>
-    <div class="form-group">
-      <input type="title" class="form-control" id="titleInput" aria-describedby="emailHelp" placeholder="Enter Title">
-      <input type="author" class="form-control" id="titleInput" aria-describedby="emailHelp" placeholder="Enter Author">
-      <input type="yearPublished" class="form-control" id="yearPublishInput" aria-describedby="emailHelp" placeholder="Enter Published Year">
-      <input type="publisher" class="form-control" id="publisherInput" aria-describedby="emailHelp" placeholder="Enter Publisher">
-      <input type="page" class="form-control" id="pageInput" aria-describedby="emailHelp" placeholder="Enter page">
-      <input type="price" class="form-control" id="priceInput" aria-describedby="emailHelp" placeholder="Enter Price">
-    </div>
-
-    <button type="submit" class="btn btn-primary">Submit</button>
-  </form>
   
   <br>
   <br>
@@ -114,6 +131,8 @@
   <script src='js/tablesort.number.js'></script>
   <script src='js/tablesort.date.js'></script>
   <script src="js/index.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-U1DAWAznBHeqEIlVSCgzq+c9gqGAJn5c/t99JyeKa9xxaYpSvHU5awsuZVVFIhvj" crossorigin="anonymous"></script>
+  <script src="https://unpkg.com/dayjs@1.8.21/dayjs.min.js"></script>
   <script> new Tablesort(document.getElementById('taskTable'));</script>  
       <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" 
       crossorigin="anonymous"></script>

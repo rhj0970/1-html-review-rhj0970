@@ -13,11 +13,11 @@ INSERT INTO student (id, username, name) VALUES
 (2, 'beth1', 'Beth Barnhart'),
 (3, 'bipin', 'Prof. Prabhakar');
 
--- SELECT * FROM students;
+
 
 DROP TABLE IF EXISTS offer;
 CREATE TABLE offer (
-
+	
     studentId int NOT NULL REFERENCES student(id) 
         ON DELETE CASCADE ON UPDATE CASCADE,
 	companyName VARCHAR(24) NOT NULL DEFAULT '',
@@ -49,8 +49,10 @@ INSERT INTO books(title, author, year_Published, publisher, page_count, msrp) VA
   ('It Ends with Us', 'Colleen Hoover', 2016, 'Atria', 384, '$10.80'),
   ('Think Again: The Power of Knowing What You Dont Know', 'Adam Grant', 2021, 'Viking', 320, '$16.75'),
   ('Dare to Lead: Brave Work. Tough Conversations. Whole Hearts', 'Brené Brown', 2018, 'Random House', 320, '$10.36'),
-  ('The Premonition: A Pandemic Story', 'Michael Lewis', 2021, 'W. W. Norton & Company', 330, '$13.65')
+  ('The Premonition: A Pandemic Story', 'Michael Lewis', 2021, 'W. W. Norton & Company', 330, '$13.65'),
+  ('Test', 'Michael Lewis', 2021, 'test', 330, '$13.65')
 ;
 
 
-
+DELETE FROM books WHERE title IS NULL;
+	

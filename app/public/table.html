@@ -54,27 +54,27 @@
     <form v-on:submit.prevent="postBookOffer">
       <div class="mb-3">
         <label for="title" class="form-label">title</label>
-        <input type="text" v-model="postBookOffer.title" class="form-control" id="title">
+        <input type="text" v-model="booksForm.title" class="form-control" id="title">
       </div>
       <div class="mb-3">
         <label for="author" class="form-label">author</label>
-        <input type="text" v-model="postBookOffer.author" class="form-control" id="author">
+        <input type="text" v-model="booksForm.author" class="form-control" id="author">
       </div>
       <div class="mb-3">
         <label for="year_Published" class="form-label">year_Published</label>
-        <input type="number" v-model="postBookOffer.year_Published" class="form-control" id="year_Published">
+        <input type="number" v-model="booksForm.year_Published" class="form-control" id="year_Published">
       </div>
       <div class="mb-3">
         <label for="publisher" class="form-label">publisher</label>
-        <input type="text" v-model="postBookOffer.publisher" class="form-control" id="publisher">
+        <input type="text" v-model="booksForm.publisher" class="form-control" id="publisher">
       </div>
       <div class="mb-3">
         <label for="page_count" class="form-label">page_count</label>
-        <input type="number" v-model="postBookOffer.page_count" class="form-control" id="page_count">
+        <input type="number" v-model="booksForm.page_count" class="form-control" id="page_count">
       </div>
       <div class="mb-3">
         <label for="msrp" class="form-label">msrp</label>
-        <input type="text" v-model="postBookOffer.msrp" class="form-control" id="msrp">
+        <input type="text" v-model="booksForm.msrp" class="form-control" id="msrp">
       </div>
 
       <button type="submit" class="btn btn-primary">Submit</button><br><br><br>

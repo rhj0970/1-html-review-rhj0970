@@ -31,19 +31,23 @@ $db = DbConnection::getConnection();
 // Step 2: Create & run the query
 // Note the use of parameterized statements to avoid injection
 $stmt = $db->prepare(
-  'UPDATE offer SET
-    companyName = ?,
-    salary = ?,
-    bonus = ?,
-    offerDate = ?
+  'UPDATE books SET
+    title = ?,
+    author = ?,
+    year_Published = ?,
+    publisher = ?,
+    page_count = ?,
+    msrp = ?
   WHERE id = ?'
 );
 
 $stmt->execute([
-  $_POST['companyName'],
-  $_POST['salary'],
-  $_POST['bonus'],
-  $_POST['offerDate'],
+  $_POST['title'],
+  $_POST['author'],
+  $_POST['year_Published'],
+  $_POST['publisher'],
+  $_POST['page_count'],
+  $_POST['msrp'],
   $_POST['id']
 ]);
 
@@ -55,4 +59,4 @@ $stmt->execute([
 // Here, instead of giving output, I'm redirecting to the SELECT API,
 // just in case the data changed by entering it
 header('HTTP/1.1 303 See Other');
-header('Location: ../offer/?student=' . $_POST['studentId']);
+header('Location: ../books/?books=' . $_POST['books']);

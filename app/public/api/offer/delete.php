@@ -31,19 +31,10 @@ $db = DbConnection::getConnection();
 // Step 2: Create & run the query
 // Note the use of parameterized statements to avoid injection
 $stmt = $db->prepare(
-  'UPDATE offer SET
-    companyName = ?,
-    salary = ?,
-    bonus = ?,
-    offerDate = ?
-  WHERE id = ?'
+  'DELETE FROM offer WHERE id = ?'
 );
 
 $stmt->execute([
-  $_POST['companyName'],
-  $_POST['salary'],
-  $_POST['bonus'],
-  $_POST['offerDate'],
   $_POST['id']
 ]);
 

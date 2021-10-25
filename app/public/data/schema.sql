@@ -38,7 +38,7 @@ INSERT INTO offer(studentId, companyName, salary, bonus, offerDate) VALUES
 
 DROP TABLE IF EXISTS books;
 CREATE TABLE books (
-	title text, author text, year_Published INT, publisher text, page_count INT, msrp text
+	id INT AUTO_INCREMENT NOT NULL, title text, author text, year_Published INT, publisher text, page_count INT, msrp text, PRIMARY KEY (`id`))
 );
 
 INSERT INTO books(title, author, year_Published, publisher, page_count, msrp) VALUES
@@ -54,5 +54,5 @@ INSERT INTO books(title, author, year_Published, publisher, page_count, msrp) VA
 ;
 
 
-DELETE FROM books WHERE title IS NULL;
+
 	

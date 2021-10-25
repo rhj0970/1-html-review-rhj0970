@@ -7,7 +7,8 @@ const SomeApp = {
         books: [],
         offerForm: {},
         booksForm: {},
-        selectedOffer: null
+        selectedOffer: null,
+        selectedBook: null
       }
     },
     computed: {},
@@ -89,6 +90,16 @@ const SomeApp = {
               this.postNewOffer(evt);
           }
         },
+        postBook(evt) {
+          console.log ("Test:", this.selectedBook);
+        if (this.selectedBook) {
+            this.postEditOffer(evt);
+        } else {
+            this.postNewOffer(evt);
+        }
+      },
+
+
         postEditOffer(evt) {
           this.offerForm.id = this.selectedOffer.id;
           this.offerForm.studentId = this.selectedStudent.id;        
@@ -112,6 +123,27 @@ const SomeApp = {
               this.handleResetEdit();
             });
         },
+        postBookEdit(evt) {   
+          console.log("Editing!", this.booksForm);
+  
+          fetch('api/books/update.php', {
+              method:'POST',
+              body: JSON.stringify(this.booksForm),
+              headers: {
+                "Content-Type": "application/json; charset=utf-8"
+              }
+            })
+            .then( response => response.json() )
+            .then( json => {
+              console.log("Returned from post:", json);
+              // TODO: test a result was returned!
+              this.books = json;
+              
+              // reset the form
+              this.handleResetEditBook();
+            });
+        },
+
         postNewOffer(evt) {
             this.offerForm.studentId = this.selectedStudent.id;        
             console.log("Posting:", this.offerForm);
@@ -157,10 +189,76 @@ const SomeApp = {
                 this.selectedOffer = offer;
                 this.offerForm = Object.assign({}, this.selectedOffer);
             },
+            handleBook(offer) {
+              this.selectedBook = offer;
+              this.booksForm = Object.assign({}, this.selectedBook);
+          },
             handleResetEdit() {
                 this.selectedOffer = null;
                 this.offerForm = {};
             },
+            handleResetEditBook() {
+              this.selectedBook = null;
+              this.booksForm = {};
+          },
+            postDeleteOffer(o) {
+                if (!confirm("Are you sure you want to delete the offer from "+o.companyName+"?")) {
+                    return;
+                }
+                
+                fetch('api/offer/delete.php', {
+                    method:'POST',
+                    body: JSON.stringify(o),
+                    headers: {
+                      "Content-Type": "application/json; charset=utf-8"
+                    }
+                  })
+                  .then( response => response.json() )
+                  .then( json => {
+                    console.log("Returned from post:", json);
+                    // TODO: test a result was returned!
+                    this.offers = json;
+                    
+                    this.resetOfferForm();
+                  });
+              },
+              postDeleteBook(o) {
+                if (!confirm("Are you sure you want to delete the offer from "+o.id+"?")) {
+                    return;
+                }
+                
+                fetch('api/books/delete.php', {
+                    method:'POST',
+                    body: JSON.stringify(o),
+                    headers: {
+                      "Content-Type": "application/json; charset=utf-8"
+                    }
+                  })
+                  .then( response => response.json() )
+                  .then( json => {
+                    console.log("Returned from post:", json);
+                    // TODO: test a result was returned!
+                    this.books = json;
+                    
+                    this.resetBooksForm();
+                  });
+              },
+              selectOffer(o) {
+                this.selectedOffer = o;
+                this.offerForm = Object.assign({}, this.selectedOffer);
+              },
+              resetOfferForm() {
+                this.selectedOffer = null;
+                this.offerForm = {};
+              },
+              selectBook(o) {
+                this.selectedBook = o;
+                this.booksForm = Object.assign({}, this.selectedBook);
+              },
+              resetBooksForm() {
+                this.selectedBook = null;
+                this.booksForm = {};
+              }
     },
 
 

@@ -44,9 +44,9 @@
         <td>{{ book.msrp }}</td>
         <td>
           <button type="button" class="btn btn-outline-secondary btn-sm"
-            v-on:click="selectBook(books)">Edit</button>
+            v-on:click="selectBook(book)">Edit</button>
           <button type="button" class="btn btn-outline-secondary btn-sm"
-            v-on:click="postDeleteBook(books)">Delete</button>
+            v-on:click="postDeleteBook(book)">Delete</button>
         </td>
     </tr>
     </tbody>
@@ -84,10 +84,8 @@
       </div>
 
       
-      <button type="submit" class="btn btn-primary">{{ selectedOffer === null ? "Add" : "Edit" }} Offer</button>
-            <button type="button" class="btn btn-outline-secondary" 
-              v-if="selectedOffer"
-              v-on:click="resetOfferForm">Cancel</button>
+      <button type="submit" class="btn btn-primary">{{ selectedBook === null ? "Add" : "Edit" }} Offer</button>
+      <button type="button" class="btn btn-outline-secondary" v-if="selectedBook"v-on:click="resetBooksForm">Cancel</button>
     </form>
     </div>
   </div>

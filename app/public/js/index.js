@@ -223,7 +223,7 @@ const SomeApp = {
                   });
               },
               postDeleteBook(o) {
-                if (!confirm("Are you sure you want to delete the offer from "+o.id+"?")) {
+                if (!confirm("Are you sure you want to delete the book from "+o.id+"?")) {
                     return;
                 }
                 
